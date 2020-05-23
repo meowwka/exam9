@@ -9,5 +9,5 @@ CREATE TABLE `users`
     `enabled` boolean NOT NULL default true ,
     `role` varchar (50) NOT NULL default 'USER',
     PRIMARY KEY (`id`),
-    UNIQUE INDEX `email_unique` (`email` ASC )
+        UNIQUE INDEX `email_unique` (`email` ASC )
 );

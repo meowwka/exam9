@@ -49,8 +49,11 @@ public class UserService {
     }
 
     public UserDTO getByEmail(String email){
-        var user = userRepository.findByEmail(email)
-                .orElseThrow(CustomerNotFoundException::new);
+        var user = userRepository.findByEmail(email);
         return UserDTO.from(user);
     }
+
+public  User findByUserName(String email){
+        return  userRepository.findByEmail(email);
+}
 }

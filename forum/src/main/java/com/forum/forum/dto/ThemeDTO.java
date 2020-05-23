@@ -19,13 +19,14 @@ public class ThemeDTO {
     private int comments;
 
     public static ThemeDTO from (Theme theme){
-        return builder().
-                id(theme.getId())
+        return builder()
+                .id(theme.getId())
                 .name(theme.getName())
                 .description(theme.getDescription())
-                .user(theme.getUser().getName())
+                .user(theme.getUser().getEmail())
                 .date(theme.getDate().toString())
                 .comments(theme.getCommentList().size())
+                .user(theme.getUser().getEmail())
                 .build();
     }
 

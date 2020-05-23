@@ -32,7 +32,7 @@
 <#--        <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
             <nav class="nav">
                 <a class="navbar-brand" href="/">Main</a>
-                <a class="navbar-brand" href="/">Create theme</a>
+                <a class="navbar-brand" href="/create">Create theme</a>
 
             </nav>
 
