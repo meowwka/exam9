@@ -3,7 +3,7 @@
 <@main.renderWith title="Seccess!">
 
 <#if user??>
-        <h2>Profile</h2>
+        <h2 style="text-align: center">Profile</h2>
     <div class="card border-dark mb-3" style="max-width: 60rem;margin-left: 5rem;">
         <div class="card-header">
 <#--            ${(user.name)!'-- missing --'}-->
