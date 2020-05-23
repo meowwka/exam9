@@ -39,16 +39,4 @@ public class Theme {
     @OneToMany(mappedBy ="theme")
     List<Comment> commentList;
 
-//    public static Theme make(User u) {
-//        Random r = new Random();
-//        return builder()
-//                .name(Generator.makePassword() + " " + Generator.makeName())
-//                .description(Generator.makeDescription())
-//                .user(u)
-//                .date(LocalDateTime.now().minusDays(r.nextInt(20) + 1))
-//                .build();
-//    }
-//    public void plusComent() {
-//        this.getCommentList().size() = ;
-//    }
 }

@@ -31,14 +31,4 @@ public class Comment {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
-//    public static Comment make(User u, Theme t) {
-//        Random r = new Random();
-//        return builder()
-//                .text(Generator.makeDescription())
-//                .user(u)
-//                .theme(t)
-//                .date(LocalDateTime.now().minusDays(r.nextInt(20) + 1))
-//                .build();
-//    }
-
 }

@@ -2,7 +2,6 @@ package com.forum.forum.controller;
 
 import com.forum.forum.model.Comment;
 import com.forum.forum.model.Theme;
-import com.forum.forum.model.User;
 import com.forum.forum.model.UserRegisterForm;
 import com.forum.forum.repo.UserRepo;
 import com.forum.forum.service.CommentService;
@@ -75,19 +74,14 @@ public class MainController {
     }
     @PostMapping("/create")
     public String postMapping( @RequestParam String name, @RequestParam String description
-//            , HttpServletRequest uriBuilder, Model model
     ){
-//        if(uriBuilder.getUserPrincipal() != null){
-//            var user = uriBuilder.getUserPrincipal().getName();
-//            User u = userRepo.findByEmail(user).get();
-//            int userId = u.getId();
+
             Theme theme = new Theme();
             theme.setName(name);
             theme.setUser(userService.findByUserName(SecurityContextHolder.getContext().getAuthentication().getName()));
             theme.setDescription(description);
             themeService.saveThemes(theme);
 
-//        }
         return "redirect:/";
 
     }
@@ -147,11 +141,12 @@ public class MainController {
     }
 
     @PostMapping("/theme/add/comment")
-    public void addComment(@RequestParam("theme_id") Integer theme_id, @RequestParam("text") String text){
+    public String addComment(@RequestParam("theme_id") Integer theme_id, @RequestParam("text") String text){
         Comment comment = new Comment();
         comment.setUser(userService.findByUserName(SecurityContextHolder.getContext().getAuthentication().getName()));
         comment.setText(text);
         comment.setTheme(themeService.findThemeById(theme_id));
         commentService.saveC(comment);
+        return "redirect:/";
     }
 }

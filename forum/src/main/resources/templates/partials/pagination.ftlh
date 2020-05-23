@@ -1,4 +1,4 @@
-<div>
+<div style="text-align: center">
     <#if hasPrev>
         <a id="loadPrev" class="btn btn-outline-info" href="${prevPageLink!''}">&lt;&lt;&lt;previousPage</a>
     <#else>

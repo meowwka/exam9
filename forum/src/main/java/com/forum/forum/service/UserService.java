@@ -3,7 +3,6 @@ package com.forum.forum.service;
 
 import com.forum.forum.dto.UserDTO;
 import com.forum.forum.exception.CustomerAlreadyRegisteredException;
-import com.forum.forum.exception.CustomerNotFoundException;
 import com.forum.forum.model.User;
 import com.forum.forum.model.UserRegisterForm;
 import com.forum.forum.repo.UserRepo;

@@ -34,7 +34,6 @@ public class ThemeService {
     }
 
     public Page<ThemeDTO> getAll(Pageable pageable) {
-//        pageable = PageRequest.of(pageable.getPageNumber(), 5, Sort.by("name").descending());
         return themeRepo.findAll(pageable).map(ThemeDTO::from);
     }
 

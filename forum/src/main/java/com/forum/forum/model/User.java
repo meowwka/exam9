@@ -45,18 +45,4 @@ public class User {
     private String role ="USER";
 
 
-//    @Column(name = "comments")
-//    private int comments = 0;
-
-//    public static User from(){
-//        return User.builder()
-//                .email(Generator.makeEmail())
-//                .name(Generator.makeName())
-//                .password(new BCryptPasswordEncoder().encode(Generator.makePassword()))
-//                .build();
-//    }
-//
-//    public void plusComent() {
-//        this.comments++;
-//    }
 }

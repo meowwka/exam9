@@ -9,10 +9,3 @@ async function addComment(form){
     })
     window.location.href = "/theme/" + data.get("theme_id");
 }
-$(document).ready(function(){
-    $("#myBtn").click(function(){
-
-            $("#myModal").modal();
-
-    });
-});
