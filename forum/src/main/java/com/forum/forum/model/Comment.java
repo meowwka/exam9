@@ -1,40 +1,34 @@
 package com.forum.forum.model;
 
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
 
 @Data
 @Builder
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 @NoArgsConstructor
 @Entity
-@Table(name = "themes")
-public class Theme {
+@Table(name = "comments")
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 128)
-    private String name;
-
-    @Column(length = 128)
-    private String description;
+    @Column(name = "text")
+    private String text;
 
     @NotBlank
-    @Column(name = "date")
+    @Column(name = "comment_date")
     @Builder.Default
     private LocalDateTime date = LocalDateTime.now();
 
     @ManyToOne(fetch = FetchType.LAZY)
+    private Theme theme;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
-    @OneToMany(mappedBy ="theme")
-    List<Comment> commentList;
 }
