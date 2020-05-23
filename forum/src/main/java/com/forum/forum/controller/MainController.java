@@ -13,12 +13,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 @RequestMapping("/")
 @AllArgsConstructor
 public class MainController {
     private final UserService userService;
+    @GetMapping("/")
+    public String getIndex(HttpServletRequest uriBuilder, Model model){
+        if(uriBuilder.getUserPrincipal() != null) {
+            var user = userService.getByEmail(uriBuilder.getUserPrincipal().getName());
+            model.addAttribute("user", user);
+        }
+        return "index";
+
+    }
     @GetMapping("/registration")
     public String pageRegisterUser(Model model, HttpServletRequest uriBuilder){
         if(!model.containsAttribute("form")){
@@ -53,5 +63,11 @@ public class MainController {
     public String loginPage(@RequestParam(required = false, defaultValue = "false") Boolean error, Model model){
         model.addAttribute("error",error);
         return "login";
+    }
+    @GetMapping("/profile")
+    public String getUser(Model model, Principal principal) {
+        var user = userService.getByEmail(principal.getName());
+        model.addAttribute("user", user);
+        return "profile";
     }
 }

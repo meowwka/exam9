@@ -18,7 +18,7 @@ public class UserRegisterForm {
 
     @NotBlank
     @Size(min=3, max=128)
-    @Pattern(regexp = "^[^\\d\\s]+$")
+    @Pattern(regexp = "^[^\\d\\s]+$", message = "Должно содержать только буквы")
     private String name = "";
 
 

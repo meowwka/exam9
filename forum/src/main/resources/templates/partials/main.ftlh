@@ -29,23 +29,39 @@
 
     <header class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">main</a>
-                <ul id="ulist" class="navbar-nav">
-                    <#if user??>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/successful"> profile</a>
-                        </li>
+<#--        <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+            <nav class="nav">
+                <a class="navbar-brand" href="/">Main</a>
+                <a class="navbar-brand" href="/">Create theme</a>
+
+            </nav>
+
+            <#if user??>
+                        <ul  class="nav justify-content-end navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/profile">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <form  action="/logout" method="post">
+                                    <#if _csrf??>
+                                        <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
+                                    </#if>
+                                    <button class=" btn btn-light" > Logout</button>
+                                </form>
+                            </li>
+                        </ul>
                     <#else>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">login</a>
-                        </li>
+                        <ul  class="nav justify-content-end navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/registration">Registration</a>
+                            </li>
+                        </ul>
                     </#if>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/cart">cart</a>
-                    </li>
-                </ul>
-        </nav>
+
+<#--        </nav>-->
 
         </div>
     </header>
